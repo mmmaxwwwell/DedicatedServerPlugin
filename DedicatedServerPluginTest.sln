@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DedicatedServerPluginTest", "DedicatedServerPluginTest\DedicatedServerPluginTest.csproj", "{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRage", "..\..\VRage\VRage.csproj", "{1C814936-C9A7-4FAF-B543-28F021D98B6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRage.Library", "..\..\VRage.Library\VRage.Library.csproj", "{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRage.Math", "..\..\VRage.Math\VRage.Math.csproj", "{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AllocationProfilingRelease|x64 = AllocationProfilingRelease|x64
+		Debug|x64 = Debug|x64
+		Release Profile|x64 = Release Profile|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.AllocationProfilingRelease|x64.ActiveCfg = Release|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.AllocationProfilingRelease|x64.Build.0 = Release|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Debug|x64.ActiveCfg = Debug|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Debug|x64.Build.0 = Debug|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Release Profile|x64.ActiveCfg = Release|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Release Profile|x64.Build.0 = Release|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Release|x64.ActiveCfg = Release|x64
+		{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}.Release|x64.Build.0 = Release|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.AllocationProfilingRelease|x64.ActiveCfg = AllocationProfilingRelease|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.AllocationProfilingRelease|x64.Build.0 = AllocationProfilingRelease|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Debug|x64.ActiveCfg = Debug|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Debug|x64.Build.0 = Debug|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Release Profile|x64.ActiveCfg = Release Profile|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Release Profile|x64.Build.0 = Release Profile|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Release|x64.ActiveCfg = Release|x64
+		{1C814936-C9A7-4FAF-B543-28F021D98B6C}.Release|x64.Build.0 = Release|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.AllocationProfilingRelease|x64.ActiveCfg = AllocationProfilingRelease|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.AllocationProfilingRelease|x64.Build.0 = AllocationProfilingRelease|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Debug|x64.ActiveCfg = Debug|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Debug|x64.Build.0 = Debug|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Release Profile|x64.ActiveCfg = Release Profile|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Release Profile|x64.Build.0 = Release Profile|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Release|x64.ActiveCfg = Release|x64
+		{26FE022E-42AB-40BE-BA9D-97CBE34E7D99}.Release|x64.Build.0 = Release|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.AllocationProfilingRelease|x64.ActiveCfg = Release|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.AllocationProfilingRelease|x64.Build.0 = Release|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Debug|x64.ActiveCfg = Debug|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Debug|x64.Build.0 = Debug|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Release Profile|x64.ActiveCfg = Release Profile|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Release Profile|x64.Build.0 = Release Profile|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Release|x64.ActiveCfg = Release|x64
+		{40CE67D5-C89F-4A56-AE52-85DB1BEA07FE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
