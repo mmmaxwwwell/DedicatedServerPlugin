@@ -166,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DedicatedServerPlugin.cs" />
-    <Compile Include="OldPlugin.cs" />
     <Compile Include="PluginConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
