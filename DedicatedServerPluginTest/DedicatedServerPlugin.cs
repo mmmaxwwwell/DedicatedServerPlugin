@@ -13,14 +13,24 @@ namespace DedicatedServerPluginTest
     {
         private PluginConfiguration m_configuration;
 
+        MqttClient _mqttClient;
+        MqttClient mqttClient { 
+            get { 
+                if(_mqttClient == null) _mqttClient = new MqttClient();
+                return _mqttClient;
+            } 
+        }
+
         public void Init(object gameInstance)
         {
-            
+            Console.Error.WriteLine("about to load mqtt");
+            var loadit = _mqttClient;
+            Console.Error.WriteLine("post load mqtt");
         }
 
         public void Update()
         {
-            Console.Error.WriteLine("ARENT YOU GLAD IM ORANGE");
+            Console.Write('.');
         }
 
         public IPluginConfiguration GetConfiguration(string userDataPath)
