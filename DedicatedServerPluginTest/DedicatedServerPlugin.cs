@@ -15,6 +15,7 @@ namespace DedicatedServerPluginTest
 
         public void Init(object gameInstance)
         {
+            
         }
 
         public void Update()
