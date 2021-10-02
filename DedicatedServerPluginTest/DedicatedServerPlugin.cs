@@ -20,6 +20,7 @@ namespace DedicatedServerPluginTest
 
         public void Update()
         {
+            Console.Error.WriteLine("ARENT YOU GLAD IM ORANGE");
         }
 
         public IPluginConfiguration GetConfiguration(string userDataPath)
