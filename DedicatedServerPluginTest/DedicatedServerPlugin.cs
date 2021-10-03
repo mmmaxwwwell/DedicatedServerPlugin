@@ -24,8 +24,9 @@ namespace DedicatedServerPluginTest
         public void Init(object gameInstance)
         {
             Console.Error.WriteLine("about to load mqtt");
-            var loadit = _mqttClient;
+            var loadit = mqttClient;
             Console.Error.WriteLine("post load mqtt");
+            Console.Error.WriteLine(mqttClient);
         }
 
         public void Update()
