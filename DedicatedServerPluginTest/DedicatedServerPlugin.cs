@@ -1,4 +1,6 @@
-﻿using Sandbox;
+﻿using NLog;
+using Sandbox;
+using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,24 +19,11 @@ namespace DedicatedServerPluginTest
         MqttClientWrapper mqttClient;
         public void Init(object gameInstance)
         {
-            (gameInstance as MySandboxGame).OnGameLoaded += DedicatedServerPlugin_OnGameLoaded;
-            (gameInstance as MySandboxGame).OnGameExit += DedicatedServerPlugin_OnGameExit;
-            //mqttClient = new MqttClientWrapper(gameInstance as MySandboxGame);
-        }
-
-        private void DedicatedServerPlugin_OnGameExit()
-        {
-            Console.Error.WriteLine("game exit");
-        }
-
-        private void DedicatedServerPlugin_OnGameLoaded(object sender, EventArgs e)
-        {
-            Console.Error.WriteLine("game loaded");
+            mqttClient = new MqttClientWrapper(gameInstance as MySandboxGame);
         }
 
         public void Update()
         {
-            Console.Error.Write(".");
         }
 
         public IPluginConfiguration GetConfiguration(string userDataPath)

@@ -146,6 +146,10 @@
     <Reference Include="VRage">
       <HintPath>..\..\lib\VRage.dll</HintPath>
     </Reference>
+    <Reference Include="VRage.Game, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\VRage.Game.dll</HintPath>
+    </Reference>
     <Reference Include="VRage.Library">
       <HintPath>..\..\lib\VRage.Library.dll</HintPath>
     </Reference>

@@ -1,6 +1,7 @@
 ﻿
 using NLog;
 using Sandbox;
+using Sandbox.ModAPI;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,46 +40,36 @@ namespace DedicatedServerPluginTest
         public MqttClientWrapper(MySandboxGame gameInstance)
         {
             this.gameInstance = gameInstance;
-            log.Info("info");
-            log.Warn("warn");
-            log.Debug("debug");
-            log.Error("error");
-            log.Fatal("fatal");
-            this.gameInstance.OnGameLoaded += GameInstance_OnGameLoaded;
-            this.gameInstance.OnGameExit += GameInstance_OnGameExit;
+            MyAPIGateway.Session.OnSessionReady += Session_OnSessionReady;
             timer = new Timer(timerCallback, null, 5000, 5000);
+        }
+
+        private void Session_OnSessionReady()
+        {
+            Console.Error.WriteLine("Session_OnSessionReady");
+            connect();
         }
 
         static void timerCallback (object state)
         {
-
+            Console.Error.WriteLine("Hello World!");
+            Console.Error.WriteLine($"PlayerCount:{MyAPIGateway.Players.Count}");
         }
 
-        private void GameInstance_OnGameExit()
-        {
-            client.Disconnect();
-        }
-
-        private void GameInstance_OnGameLoaded(object sender, EventArgs e)
-        {
-            Console.Error.WriteLine("GameInstance_OnGameLoaded");
-            connect();
-        }
-
-        public void connect()
+        public async Task connect()
         {
             log.Error("Connecting");
             Console.Error.WriteLine("Connecting");
 
-            try
-            {
-                _client.Connect("clientId", "username", "password");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine("Error connecting to server");
-                log.Error(ex, "Error connecting to server");
-            }
+            //try
+            //{
+            //    _client.Connect("clientId", "username", "password");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.Error.WriteLine("Error connecting to server");
+            //    log.Error(ex, "Error connecting to server");
+            //}
         }
     }
 }
