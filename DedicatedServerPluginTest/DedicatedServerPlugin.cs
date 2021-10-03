@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sandbox;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,25 +14,27 @@ namespace DedicatedServerPluginTest
     {
         private PluginConfiguration m_configuration;
 
-        MqttClient _mqttClient;
-        MqttClient mqttClient { 
-            get { 
-                if(_mqttClient == null) _mqttClient = new MqttClient();
-                return _mqttClient;
-            } 
-        }
-
+        MqttClientWrapper mqttClient;
         public void Init(object gameInstance)
         {
-            Console.Error.WriteLine("about to load mqtt");
-            var loadit = mqttClient;
-            Console.Error.WriteLine("post load mqtt");
-            Console.Error.WriteLine(mqttClient);
+            (gameInstance as MySandboxGame).OnGameLoaded += DedicatedServerPlugin_OnGameLoaded;
+            (gameInstance as MySandboxGame).OnGameExit += DedicatedServerPlugin_OnGameExit;
+            //mqttClient = new MqttClientWrapper(gameInstance as MySandboxGame);
+        }
+
+        private void DedicatedServerPlugin_OnGameExit()
+        {
+            Console.Error.WriteLine("game exit");
+        }
+
+        private void DedicatedServerPlugin_OnGameLoaded(object sender, EventArgs e)
+        {
+            Console.Error.WriteLine("game loaded");
         }
 
         public void Update()
         {
-            Console.Write('.');
+            Console.Error.Write(".");
         }
 
         public IPluginConfiguration GetConfiguration(string userDataPath)

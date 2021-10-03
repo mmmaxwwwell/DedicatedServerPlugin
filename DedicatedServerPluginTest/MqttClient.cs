@@ -1,14 +1,14 @@
-﻿using MQTTnet;
-using MQTTnet.Client;
-using MQTTnet.Client.Options;
+﻿
 using NLog;
+using Sandbox;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using uPLibrary.Networking.M2Mqtt;
 
 namespace DedicatedServerPluginTest
 {
-    class MqttClient
+    class MqttClientWrapper
     {
         Logger _log;
         Logger log
@@ -20,65 +20,63 @@ namespace DedicatedServerPluginTest
             }
         }
 
-        IMqttClient _client;
-        IMqttClient client
+        MqttClient _client;
+        MqttClient client
         {
             get
             {
                 if (_client == null)
                 {
-                    var factory = new MqttFactory();
-                    _client = factory.CreateMqttClient();
-
-                    _client.UseApplicationMessageReceivedHandler((messageEventArgs) =>
-                    {
-
-                    });
-
-                    _client.UseConnectedHandler((connectedEventArgs) =>
-                    {
-                        log.Info("Connected!");
-                    });
-
-                    _client.UseDisconnectedHandler((disconnectedEventArgs) =>
-                    {
-                        log.Info("Disconnected");
-#pragma warning disable 4014
-                        connect(5);
-#pragma warning restore 4014
-                    });
+                    _client = new MqttClient("329967105c1a42858a61da9523f94ee3.s1.eu.hivemq.cloud");
                 }
                 return _client;
             }
         }
 
-        public MqttClient()
+        MySandboxGame gameInstance;
+        Timer timer;
+
+        public MqttClientWrapper(MySandboxGame gameInstance)
         {
-            //log.Info("Initializing DedicatedServerPluginTest.MqttClient");
-#pragma warning disable 4014
-            //connect();
-#pragma warning restore 4014
+            this.gameInstance = gameInstance;
+            log.Info("info");
+            log.Warn("warn");
+            log.Debug("debug");
+            log.Error("error");
+            log.Fatal("fatal");
+            this.gameInstance.OnGameLoaded += GameInstance_OnGameLoaded;
+            this.gameInstance.OnGameExit += GameInstance_OnGameExit;
+            timer = new Timer(timerCallback, null, 5000, 5000);
         }
 
-        public async Task connect(int delaySeconds = 0)
+        static void timerCallback (object state)
         {
 
-            if (delaySeconds != 0) await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
-            var options = new MqttClientOptionsBuilder()
-                .WithClientId("clientId")
-                .WithTcpServer("hostname")
-                .WithCredentials("username", "password")
-                .WithTls()
-                .WithCleanSession()
-                .Build();
+        }
+
+        private void GameInstance_OnGameExit()
+        {
+            client.Disconnect();
+        }
+
+        private void GameInstance_OnGameLoaded(object sender, EventArgs e)
+        {
+            Console.Error.WriteLine("GameInstance_OnGameLoaded");
+            connect();
+        }
+
+        public void connect()
+        {
+            log.Error("Connecting");
+            Console.Error.WriteLine("Connecting");
 
             try
             {
-                await client.ConnectAsync(options, CancellationToken.None);
-
+                _client.Connect("clientId", "username", "password");
             }
             catch (Exception ex)
             {
+                Console.Error.WriteLine("Error connecting to server");
                 log.Error(ex, "Error connecting to server");
             }
         }
